@@ -1,8 +1,13 @@
-use crate::day1::{solved_d1p1, solved_d1p2};
+use crate::day1::solve_day1;
+use crate::day2::solve_day2;
 
 mod day1;
+mod day2;
 
 fn main() {
-    solved_d1p1();
-    solved_d1p2();
+    /* Day 1 */
+    solve_day1();
+
+    /* Day 2 */
+    solve_day2();
 }

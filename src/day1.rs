@@ -1,6 +1,3 @@
-use std::env;
-use std::fs;
-use std::string;
 use phf::phf_map;
 
 const CONVERSION_MAP: phf::Map<&'static str, &'static str> = phf_map! {
@@ -16,38 +13,42 @@ const CONVERSION_MAP: phf::Map<&'static str, &'static str> = phf_map! {
    "zero" => "0",
 };
 
-pub fn solved_d1p1() {
-   let text = read_day1_file();
+pub fn solve_day1() {
+   println!("Day 1 Part 1 Solution: {}", solve_d1p1(read_day1_file()));
+   println!("Day 1 Part 2 Solution: {}", solve_d1p2(read_day1_file()));
+   println!()
+}
+
+fn solve_d1p1(text: String) -> u32 {
    let mut sum = 0;
    for line in text.lines() {
       let mut nums = vec![];
       line.chars().for_each(|c| {
-         if (c.is_numeric()) {
+         if c.is_numeric() {
             nums.push(c.to_digit(10).unwrap())
          }
       });
       sum += get_calibration_value(&nums);
    }
 
-   println!("Day1 Part 1 Answer: {}", sum);
+   sum
 }
 
-pub fn solved_d1p2() {
-   let text = read_day1_file();
+fn solve_d1p2(text: String) -> u32 {
    //let text = read_da1_test_file();
    let mut sum = 0;
    for line in text.lines() {
       let new_line = convert_strings_to_num(line);
       let mut nums = vec![];
       new_line.chars().for_each(|c| {
-         if (c.is_numeric()) {
+         if c.is_numeric() {
             nums.push(c.to_digit(10).unwrap());
          }
       });
       sum += get_calibration_value(&nums);
    }
 
-   println!("Day1 Part 2 Answer: {}", sum);
+   sum
 }
 
 fn get_calibration_value(nums: &Vec<u32>) -> u32 {
@@ -74,7 +75,26 @@ fn read_day1_file() -> String {
    String::from(day1_test)
 }
 
-fn read_da1_test_file() -> String {
-   let day1_test_file = include_str!("../inputs/day1_test.txt");
-   String::from(day1_test_file)
+#[cfg(test)]
+mod test {
+   use crate::day1::{solve_d1p1, solve_d1p2};
+
+   fn read_day1_part1_test_file() -> String {
+     String::from(include_str!("../inputs/day1_part1_test.txt"))
+   }
+
+   fn read_day1_part2_test_file() -> String {
+      let day1_test_file = include_str!("../inputs/day1_part2_test.txt");
+      String::from(day1_test_file)
+   }
+   #[test]
+   fn test_part1() {
+      assert_eq!(solve_d1p1(read_day1_part1_test_file()), 142);
+   }
+
+   #[test]
+   fn test_part2() {
+      assert_eq!(solve_d1p2(read_day1_part2_test_file()), 281);
+   }
+
 }
