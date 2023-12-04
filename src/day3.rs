@@ -163,8 +163,8 @@ fn get_positions(x: usize, y: usize, x_max: usize, y_max: usize) -> Vec<Point> {
 }
 
 pub fn solve_day3() {
-    println!("Day 2 Part 1 Solution: {}", solve_part1(read_day3_file()));
-    println!("Day 2 Part 2 Solution: {}", solve_part2(read_day3_file()));
+    println!("Day 3 Part 1 Solution: {}", solve_part1(read_day3_file()));
+    println!("Day 3 Part 2 Solution: {}", solve_part2(read_day3_file()));
     println!();
 }
 

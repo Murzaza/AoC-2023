@@ -8,3 +8,5 @@ My solutions to [Advent of Code 2022](https://adventofcode.com/2023) using [Rust
 |-----| ---    |
 | 1   | ⭐⭐  |
 | 2   | ⭐⭐  |
+| 3   | ⭐⭐  |
+| 4   | ⭐⭐  |
