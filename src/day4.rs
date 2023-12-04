@@ -3,8 +3,6 @@ use itertools::Itertools;
 
 struct Card {
     id: u32,
-    winning: Vec<u32>,
-    numbers: Vec<u32>,
     points: u32,
     matches: u32,
 }
@@ -41,7 +39,7 @@ impl FromStr for Card {
 
         let id = card_id.split_whitespace().last().unwrap().parse::<u32>().unwrap() - 1;
 
-        Ok(Card{ id, winning, numbers, points, matches })
+        Ok(Card{ id, points, matches })
     }
 }
 
