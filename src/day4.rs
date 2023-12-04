@@ -70,7 +70,7 @@ fn solve_part2(text: String) -> u32 {
             }
         });
 
-    copies.iter().map(|i| {*i}).sum()
+    copies.into_iter().sum()
 }
 
 pub fn solve_day4() {
@@ -99,6 +99,4 @@ mod test {
     fn test_part2() {
         assert_eq!(solve_part2(read_day4_test_file()), 30)
     }
-
-
 }
