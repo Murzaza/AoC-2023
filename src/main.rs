@@ -3,12 +3,14 @@ use crate::day2::solve_day2;
 use crate::day3::solve_day3;
 use crate::day4::solve_day4;
 use crate::day5::solve_day5;
+use crate::day6::solve_day6;
 
 mod day1;
 mod day2;
 mod day3;
 mod day4;
 mod day5;
+mod day6;
 
 fn main() {
     /* Day 1 */
@@ -25,4 +27,7 @@ fn main() {
 
     /* Day 5 */
     solve_day5();
+
+    /* Day 6 */
+    solve_day6();
 }
